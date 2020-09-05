@@ -19,9 +19,7 @@ const useStyles = makeStyles({
   title: {
     fontSize: 14,
   },
-  pos: {
-    marginBottom: 12,
-  },
+
   end: {
     height: "100%",
   },
@@ -53,14 +51,14 @@ const Posts = (props) => {
           <Typography variant="h5" component="h2">
             {title}
           </Typography>
-
+          <hr />
           <Typography variant="body2" component="p">
             {body}
           </Typography>
         </CardContent>
         <CardActions>
           <Button onClick={() => handleButton(id)} size="small">
-            Learn More
+            Comments
           </Button>
         </CardActions>
       </Card>

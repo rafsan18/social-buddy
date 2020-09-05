@@ -9,6 +9,9 @@ import Images from "../Images/Images";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    paddingLeft: "20px",
+    borderRadius: "10px",
+    marginBottom: "5px",
   },
   details: {
     display: "flex",
@@ -16,19 +19,6 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flex: "1 0 auto",
-  },
-  cover: {
-    width: 151,
-  },
-  controls: {
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-  },
-  playIcon: {
-    height: 38,
-    width: 38,
   },
 }));
 
@@ -52,11 +42,12 @@ const Comments = (props) => {
         <CardContent className={classes.content}>
           <Typography component="h5" variant="h5">
             {name}
+            <hr />
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+          <Typography variant="subtitle2" color="textSecondary">
             {body}
           </Typography>
-          <Typography>{email}</Typography>
+          <small>{email}</small>
         </CardContent>
       </div>
     </Card>

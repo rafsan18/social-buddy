@@ -2,8 +2,8 @@ import React from "react";
 
 const Images = (props) => {
   const imageStyle = {
-    height: "100px",
-    width: "100px",
+    height: "60px",
+    width: "60px",
     borderRadius: "50%",
     alignSelf: "center",
   };

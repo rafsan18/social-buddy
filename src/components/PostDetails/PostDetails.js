@@ -14,16 +14,9 @@ const useStyles = makeStyles({
   root: {
     minWidth: 275,
   },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
+
   title: {
     fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
   },
 });
 
@@ -34,6 +27,7 @@ const PostDetails = () => {
   const classes = useStyles();
   const [comments, setComments] = useState([]);
 
+  // for individual post
   useEffect(() => {
     const url = `https://jsonplaceholder.typicode.com/posts/${postId}`;
 
@@ -45,7 +39,6 @@ const PostDetails = () => {
   // for comments fetching
   useEffect(() => {
     const url = `https://jsonplaceholder.typicode.com/comments?postId=${postId}`;
-
     fetch(url)
       .then((res) => res.json())
       .then((data) => setComments(data));
@@ -67,6 +60,7 @@ const PostDetails = () => {
             <Typography variant="h5" component="h2">
               {title}
             </Typography>
+            <hr />
 
             <Typography variant="body2" component="p">
               {body}
