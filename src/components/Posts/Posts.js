@@ -10,18 +10,19 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    minHeight: "100%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
+
   title: {
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
+  },
+  end: {
+    height: "100%",
   },
 });
 
@@ -33,7 +34,7 @@ const Posts = (props) => {
   return (
     <Grid item xs>
       <Card className={classes.root} variant="outlined">
-        <CardContent>
+        <CardContent className={classes.end}>
           <Typography
             className={classes.title}
             color="textSecondary"
