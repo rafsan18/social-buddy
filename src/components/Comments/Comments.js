@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
 import Typography from "@material-ui/core/Typography";
+import Images from "../Images/Images";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +35,9 @@ const useStyles = makeStyles((theme) => ({
 const Comments = (props) => {
   const classes = useStyles();
 
-  const { name, body, email, id } = props.comment;
+  const { name, body, email } = props.comment;
+
+  //  for fetching image
   const [image, setImage] = useState();
   useEffect(() => {
     fetch("https://randomuser.me/api/")
@@ -44,16 +47,7 @@ const Comments = (props) => {
 
   return (
     <Card className={classes.root}>
-      <img
-        style={{
-          height: "100px",
-          width: "100px",
-          borderRadius: "50%",
-          alignSelf: "center",
-        }}
-        src={image}
-        alt=""
-      />
+      <Images image={image}></Images>
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="h5">
