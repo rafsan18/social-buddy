@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -27,9 +28,16 @@ const useStyles = makeStyles({
 });
 
 const Posts = (props) => {
-  const { title, body } = props.post;
+  const { title, body, id } = props.post;
 
   const classes = useStyles();
+
+  const history = useHistory();
+
+  const handleButton = (postId) => {
+    const url = `/posts/${postId}`;
+    history.push(url);
+  };
 
   return (
     <Grid item xs>
@@ -40,7 +48,7 @@ const Posts = (props) => {
             color="textSecondary"
             gutterBottom
           >
-            Post
+            Post: {id}
           </Typography>
           <Typography variant="h5" component="h2">
             {title}
@@ -51,7 +59,9 @@ const Posts = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          <Button onClick={() => handleButton(id)} size="small">
+            Learn More
+          </Button>
         </CardActions>
       </Card>
     </Grid>
