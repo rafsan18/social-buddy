@@ -13,10 +13,19 @@ import Comments from "../Comments/Comments";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    padding: "20px",
+    maxWidth: 665,
+    margin: "0 auto",
   },
 
   title: {
     fontSize: 14,
+  },
+  comments: {
+    borderBottom: "2px solid black",
+    marginBottom: 10,
+    paddingLeft: 16,
+    fontWeight: 700,
   },
 });
 
@@ -66,10 +75,11 @@ const PostDetails = () => {
               {body}
             </Typography>
           </CardContent>
+          <Typography className={classes.comments}>Comments</Typography>
+          {comments.map((comment) => (
+            <Comments key={comment.id} comment={comment}></Comments>
+          ))}
         </Card>
-        {comments.map((comment) => (
-          <Comments key={comment.id} comment={comment}></Comments>
-        ))}
       </Container>
     </React.Fragment>
   );

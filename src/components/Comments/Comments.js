@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 
 import Typography from "@material-ui/core/Typography";
 import Images from "../Images/Images";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,17 +39,23 @@ const Comments = (props) => {
 
   return (
     <Card className={classes.root}>
-      <Images image={image}></Images>
       <div className={classes.details}>
         <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-            {name}
-            <hr />
-          </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={3}>
+              <Images image={image}></Images>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography component="h5" variant="h5">
+                {name}
+              </Typography>
+              <small>{email}</small>
+            </Grid>
+          </Grid>
+          <hr />
           <Typography variant="subtitle2" color="textSecondary">
             {body}
           </Typography>
-          <small>{email}</small>
         </CardContent>
       </div>
     </Card>
