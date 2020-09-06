@@ -32,7 +32,8 @@ const Comments = (props) => {
   useEffect(() => {
     fetch("https://randomuser.me/api/")
       .then((res) => res.json())
-      .then((data) => setImage(data.results[0].picture.large));
+      .then((data) => setImage(data.results[0].picture.large))
+      .catch(() => setImage("https://i.ibb.co/gvN5szv/kakashi.png"));
   }, []);
 
   return (
